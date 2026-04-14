@@ -1,5 +1,5 @@
 body{
-    background-color: #d8e0f1;
+    background-color: var(--app-canvas, #d8e0f1);
     font-family: "Rubik", sans-serif;
   }
   a {
@@ -1744,7 +1744,7 @@ body{
   }
   .dashboardimg1section_img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     object-fit: cover;
     object-position: center;
     transition: transform 0.45s ease, opacity 0.3s ease, filter 0.3s ease;
@@ -1960,7 +1960,7 @@ h3.dashboard-card-value.mb-3 {
 }
 .imageWidth{
     width: 50%!important;
-}
+  }
 .padding-left-search{
     padding-left: 230px;
 }
@@ -1980,4 +1980,94 @@ h3.dashboard-card-value.mb-3 {
         font-size: 13px;
 
     }
+}
+
+/* Shell chrome: topbar + sidebar share --app-shell-bg from globals.css (:root / .dark). */
+#page-topbar {
+    background-color: var(--app-shell-bg);
+}
+body[data-topbar="dark"] #page-topbar {
+    background-color: var(--app-shell-bg);
+}
+.vertical-menu {
+    background: var(--app-shell-bg);
+}
+body[data-sidebar="dark"] .vertical-menu {
+    background: var(--app-shell-bg);
+    border-color: var(--app-sidebar-border);
+}
+.navbar-brand-box {
+    background-color: var(--app-shell-bg);
+}
+body[data-sidebar="dark"] .navbar-brand-box {
+    background-color: var(--app-shell-bg);
+}
+
+/* Sidebar nav — use --app-sidebar-* (beats app.min literal colors; includes body[data-sidebar=dark] specificity) */
+#sidebar-menu ul li a,
+body[data-sidebar="dark"] #sidebar-menu ul li a {
+    color: var(--app-sidebar-link);
+}
+#sidebar-menu ul li a i,
+body[data-sidebar="dark"] #sidebar-menu ul li a i {
+    color: var(--app-sidebar-link-icon);
+}
+#sidebar-menu ul li a:hover,
+body[data-sidebar="dark"] #sidebar-menu ul li a:hover {
+    color: var(--app-sidebar-link-hover) !important;
+    background-color: var(--app-sidebar-link-hover-bg);
+}
+#sidebar-menu ul li a:hover i,
+body[data-sidebar="dark"] #sidebar-menu ul li a:hover i {
+    color: var(--app-sidebar-link-hover-icon) !important;
+}
+#sidebar-menu ul li ul.sub-menu {
+    background-color: var(--app-sidebar-submenu-bg);
+}
+#sidebar-menu ul li ul.sub-menu li a,
+body[data-sidebar="dark"] #sidebar-menu ul li ul.sub-menu li a {
+    color: var(--app-sidebar-submenu-link);
+}
+#sidebar-menu ul li ul.sub-menu li a:hover,
+body[data-sidebar="dark"] #sidebar-menu ul li ul.sub-menu li a:hover {
+    color: var(--app-sidebar-submenu-link-hover);
+}
+#sidebar-menu ul li ul.sub-menu li a:hover i,
+body[data-sidebar="dark"] #sidebar-menu ul li ul.sub-menu li a:hover i {
+    color: var(--app-sidebar-submenu-link-hover);
+}
+.mm-active > a,
+body[data-sidebar="dark"] .mm-active > a {
+    color: var(--app-sidebar-active-fg) !important;
+    background-color: var(--app-sidebar-active-bg);
+}
+.mm-active > a i,
+body[data-sidebar="dark"] .mm-active > a i {
+    color: var(--app-sidebar-active-icon) !important;
+}
+.mm-active > i,
+.mm-active .active,
+.mm-active .active i,
+body[data-sidebar="dark"] .mm-active > i,
+body[data-sidebar="dark"] .mm-active .active,
+body[data-sidebar="dark"] .mm-active .active i {
+    color: var(--app-sidebar-active-ring) !important;
+}
+#sidebar-menu .menu-title,
+.menu-title,
+body[data-sidebar="dark"] .menu-title {
+    color: var(--app-sidebar-section-label);
+}
+.sidebar-open aside.vertical-menu{
+  width: 0px;
+  background-color: #d8e0f1;
+}
+
+.sidebar-open .main-content {
+  margin-left: 0px;
+  transition: all 0.3s ease;
+}
+
+.sidebar-open .vertical-menu-btn{
+  right: -240px;
 }

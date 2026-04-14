@@ -4,7 +4,7 @@
     top:0;
     right:0;
     left:250px;
-    z-index:1002;
+    z-index:9;
     background-color:#fff;
     box-shadow: 4px -1px 20px 0px rgba(89, 102, 122, 0.1);
 }
@@ -41,11 +41,10 @@ body:not(.vertical-collpsed) .app-search{
     background:rgba(255,255,255,.4)
 }
 .navbar-brand-box{
-    padding:0 1.2rem;
     background-color: #fff;
-    width:250px;
-    box-shadow: 4px -1px 20px 0px rgb(89 102 122 / 23%);
+    width: 246px;
     padding: 23px 10px 19px 19px;
+    box-shadow: -20px 2px 16px #59667a21;
 }
 .logo{
     line-height:70px
@@ -414,7 +413,7 @@ body[data-layout=horizontal] .footer{
 }
 .vertical-menu{
     width:250px;
-    z-index:1001;
+    z-index:9;
     background: #ffffff;
     bottom:0;
     margin-top:0;
@@ -427,7 +426,6 @@ body[data-layout=horizontal] .footer{
     right:0;
     top:0;
     z-index:2;
-    border-right: solid 1px #ffffff;
 }
 .main-content{
     margin-left:250px;
@@ -739,10 +737,10 @@ body[data-sidebar=dark] .vertical-menu{
     border-color:#242c36
 }
 body[data-sidebar=dark] #sidebar-menu ul li a{
-    color:#7d848f
+    color:#b8bbc0
 }
 body[data-sidebar=dark] #sidebar-menu ul li a i{
-    color:#7d848f
+    color:#b8bbc0
 }
 body[data-sidebar=dark] #sidebar-menu ul li a:hover{
     color:#cdd2da
@@ -751,7 +749,7 @@ body[data-sidebar=dark] #sidebar-menu ul li a:hover i{
     color:#cdd2da
 }
 body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a{
-    color:#7d848f
+    color:#b8bbc0
 }
 body[data-sidebar=dark] #sidebar-menu ul li ul.sub-menu li a:hover{
     color:#cdd2da
@@ -4561,6 +4559,39 @@ div.dt-button-info h2{
 }
 input:autofill{
     background-color: #fff !important;
+}
+.text-xs-font{
+    font-size: 13px !important;
+}
+.w-min-w{
+    min-width: 135px !important;
+    width: max-content;
+}
+.small-btns{
+    color: #f0f2ff;
+    background-color: #4387f6;
+    border-radius: 6px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 200;
+    position: absolute;
+    right: 0;
+    height: 22px;
+    border: 0px;
+}
+.relative{
+    position: relative!important;
+}
+.shadow-none{
+    box-shadow: none!important;
+}
+
+.copyButtonTop{
+    margin-top: -4px;
+}
+.accrodian-bg{
+    background-color: #e5e5f9 !important;
+    margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=app.min.css.map */

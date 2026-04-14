@@ -1,8 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react'
-import DashboardHeader from '../components/Dashboard/DashboardHeader'
-import DashboardCard from '../components/Dashboard/DashboardCard'
+
 import das1 from '../assets/images/das1.png'
 import das2 from '../assets/images/das2.png'
 import das5 from '../assets/images/das5.png'
@@ -13,10 +12,18 @@ import dashboard_graph2 from '../assets/images/dashboard_graph2.png'
 import dashboard_graph3 from '../assets/images/dashboard_graph3.png'
 import dashboard_graph4 from '../assets/images/dashboard_graph4.png'
 import dashboard_graph5 from '../assets/images/dashboard_graph5.png'   
-import GraphCard from '../components/Dashboard/GraphCard'
-import { activityOptions, getActivitySeries, buildActivityLineConfig, buildUsageBarConfig, initBulkUploadingOverview, buildTopActivationsDonutConfig, buildInventoryDonutConfig } from '../components/charts/configs/dashboardCharts'
+
+import {
+  buildActivityLineConfig,
+  buildUsageBarConfig,
+  initBulkUploadingOverview,
+  buildTopActivationsDonutConfig,
+  buildInventoryDonutConfig,
+} from '@/components/charts/configs/dashboardCharts'
+import DashboardCard from './components/DashboardCard';
+import GraphCard from './components/GraphCard';
 export default function Dashboard() {
-    const bulkSectionRef = useRef(null);
+    const bulkSectionRef = useRef<HTMLDivElement | null>(null)
     const [showBulkChart, setShowBulkChart] = useState(false);
 
     useEffect(() => {
@@ -54,7 +61,7 @@ export default function Dashboard() {
 
   return (
     <>
-    <DashboardHeader />
+
     <div className="dashboard-top-card mt-3">
 
         <DashboardCard
@@ -65,6 +72,8 @@ export default function Dashboard() {
             badgeText="0.6%"
             vsText="vs last month"
             badgeIcon="mdi mdi-arrow-top-right"
+            badgeClassName="budget-success"
+            trailing={null}
         />
 
         <DashboardCard
@@ -73,9 +82,10 @@ export default function Dashboard() {
             title="Deactivation"
             value="1,200"
             badgeText="0.2%"
-            badgeClassName="budget-danger"
             badgeIcon="ri-arrow-right-down-line"
             vsText="vs yesterday"
+            badgeClassName="budget-danger"
+            trailing={null}
         />
 
           <DashboardCard
@@ -83,9 +93,11 @@ export default function Dashboard() {
             imageAlt="Today's Usage"
             title="Today's Usage"
             value="90 GB"
-            badgeText="1.4%%"
+            badgeText="1.4%"
             badgeIcon="mdi mdi-arrow-top-right"
             vsText="vs last month"
+            badgeClassName="budget-success"
+            trailing={null}
         />
 
         <DashboardCard
@@ -93,9 +105,11 @@ export default function Dashboard() {
             imageAlt="MSISDN Snapshot"
             title="MSISDN Snapshot"
             value="2,845"
-            badgeText="4.50%%"
+            badgeText="4.50%"
             badgeIcon="mdi mdi-arrow-top-right"
             vsText="vs last month"
+            badgeClassName="budget-success"
+            trailing={null}
         />
 
         <DashboardCard
@@ -103,10 +117,11 @@ export default function Dashboard() {
             imageAlt="API Success Rate"
             title="API Success Rate"
             value="98.5%"
-            badgeText="4.50%%"
-             badgeClassName="budget-danger"
+            badgeText="4.50%"
             badgeIcon="ri-alert-fill"
             vsText="1.30K failed"
+            badgeClassName="budget-danger"
+            trailing={null}
         />
 
     </div>
@@ -125,6 +140,8 @@ export default function Dashboard() {
                 ctaHref="#"
                 ctaLabel="Click to View"
                 ctaIconClass="ri-bar-chart-line"
+              imageWidth=""
+                imageAlt="Last 7 Days Activity Chart"
             />
         </div>
 
@@ -139,6 +156,8 @@ export default function Dashboard() {
                 ctaHref="#"
                 ctaLabel="Click to View"
                 ctaIconClass="ri-bar-chart-line"
+                imageWidth=""
+                imageAlt="Last 7 Days Usage Chart"
             />
         </div>
 
@@ -154,6 +173,7 @@ export default function Dashboard() {
                 ctaHref="#"
                 ctaLabel="Click to View"
                 ctaIconClass="ri-bar-chart-line"
+                imageWidth=""
             />
 
         </div>
@@ -340,11 +360,11 @@ export default function Dashboard() {
                 chartHeight={255}
                 chartOptions={topActivationsOpts}
                 chartSeries={topActivationsSeries}
-                imageAlt=">Top Activations - Billing Chart"
+                imageWidth=""
+                imageAlt="Top Activations - Billing Chart"
                 ctaHref="#"
                 ctaLabel="Click to View"
                 ctaIconClass="ri-bar-chart-line"
-                imageWidth="imageWidth"
             />
         </div>
     </div>

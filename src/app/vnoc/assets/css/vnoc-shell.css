@@ -1,0 +1,735 @@
+/**
+ * Virtual NOC shell — layout/visuals separate from main BlueConnects chrome.
+ * Loaded from `src/app/vnoc/layout.tsx`.
+ */
+
+.vnoc-layout {
+  display: flex;
+  min-height: 100dvh;
+  flex-direction: column;
+  /* VNOC action grid + accordion — map to app tokens in `.dark .vnoc-layout` */
+  --vnoc-panel-surface: #ffffff;
+  --vnoc-panel-border: #e2e8f0;
+  --vnoc-accordion-item-bg: #eef3fa;
+  --vnoc-accordion-item-border: #d6e0ef;
+  --vnoc-accordion-trigger-fg: #1f2937;
+  --vnoc-accordion-trigger-hover-bg: rgba(245, 245, 245, 0.9);
+  --vnoc-accordion-content-bg: #ffffff;
+  --vnoc-accordion-content-border: #e5e5e5;
+  background: #ffffff;
+  color: #1e293b;
+}
+
+.vnoc-layout__body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+  padding: 1rem 1.25rem 1rem;
+  gap: 0;
+  background: #d8e0f1;
+  padding-top: 90px;
+}
+
+/* Floating sidebar card (shorter than viewport — reference layout) */
+.vnoc-sidebar {
+  position: fixed;
+  z-index: 2;
+  display: flex;
+  width: 10rem;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-top: 0.25rem;
+  margin-bottom: auto;
+  padding: 0.75rem 0.5rem;
+  border-radius: 0 1.25rem 1.25rem 0;
+  background: #ffffff;
+  box-shadow:
+    4px 0 24px rgba(15, 23, 42, 0.06),
+    inset -1px 0 0 rgba(15, 23, 42, 0.04);
+}
+
+.vnoc-sidebar__nav {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  height: calc(100vh - 135px);
+  gap: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: #ecf1f9 transparent;
+}
+
+
+.vnoc-sidebar__nav::-webkit-scrollbar{
+  width: 8px;
+  height: 8px;
+}
+.vnoc-sidebar__nav::-webkit-scrollbar-track{
+  background: transparent;
+}
+.vnoc-sidebar__nav::-webkit-scrollbar-thumb{
+  background-color: #ecf1f9;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.vnoc-sidebar__nav::-webkit-scrollbar-thumb:hover{
+  background-color: #98a7c7;
+}
+
+.vnoc-sidebar__link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 0.75rem;
+  padding: .8rem .35rem;
+  text-align: center;
+  text-decoration: none;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.15;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.vnoc-sidebar__link:hover {
+  background: #dfe8fb;
+  color: #0f172a;
+}
+
+.vnoc-sidebar__link--active {
+  position: relative;
+  z-index: 1;
+  border-radius: 0.75rem;
+  background: #d6e9ff;
+  color: #1d4ed8;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+.vnoc-sidebar__icon {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.65rem;
+  font-size: 1.35rem;
+}
+
+.vnoc-sidebar__link--active .vnoc-sidebar__icon {
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+/* Icon tile colors (approximate reference) */
+.vnoc-icon-tile--chart {
+  background: linear-gradient(145deg, #dbeafe 0%, #93c5fd 100%);
+  color: #1d4ed8;
+}
+.vnoc-icon-tile--warn {
+  background: linear-gradient(145deg, #fee2e2 0%, #fca5a5 100%);
+  color: #b91c1c;
+}
+.vnoc-icon-tile--screen {
+  background: linear-gradient(145deg, #ede9fe 0%, #c4b5fd 100%);
+  color: #5b21b6;
+}
+.vnoc-icon-tile--doc {
+  background: linear-gradient(145deg, #e0f2fe 0%, #7dd3fc 100%);
+  color: #0369a1;
+}
+.vnoc-icon-tile--bars {
+  background: linear-gradient(145deg, #d1fae5 0%, #6ee7b7 100%);
+  color: #047857;
+}
+
+/* Main canvas */
+.vnoc-main {
+ z-index: 0;
+    background: #c8d4e600;
+    border-radius: 1.5rem 1.5rem 1.25rem 1.25rem;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    margin: 5px 0 20px 180px;
+    display: flex;
+    position: relative;
+    box-shadow: inset 0 1px #ffffff00;
+}
+
+.vnoc-main__inner {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow: auto;
+  padding: 0rem;
+}
+
+/* ----- Creative VNOC header (scoped to .vnoc-header--creative) ----- */
+.vnoc-header--creative {
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-bottom: none;
+  background-color: #ffffff;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.85) inset,
+    0 12px 40px -24px rgba(65, 105, 225, 0.35);
+}
+
+.vnoc-header__aurora {
+  pointer-events: none;
+  position: absolute;
+  inset: -40% -20%;
+  opacity: 0.55;
+  background:
+    radial-gradient(ellipse 80% 60% at 12% 20%, rgb(147 197 253 / 0.45), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 88% 10%, rgb(196 181 253 / 0.4), transparent 45%),
+    radial-gradient(ellipse 60% 80% at 50% 120%, rgb(125 211 252 / 0.25), transparent 55%);
+  animation: vnoc-header-aurora 18s ease-in-out infinite alternate;
+}
+
+@keyframes vnoc-header-aurora {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -1%, 0) scale(1.04);
+  }
+}
+
+.vnoc-header__grid-noise {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='80' height='80' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+.vnoc-header--creative .vnoc-header__row {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  min-height: 4.25rem;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  padding: 0.65rem 1.35rem 0.75rem;
+  gap: 1rem;
+}
+
+.vnoc-header__brand-group {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0.65rem;
+  justify-self: start;
+}
+
+.vnoc-header__brand-shell {
+    border-radius: .75rem;
+    align-items: center;
+    padding-right: 20px;
+    transition: box-shadow .2s, transform .2s;
+}
+
+.vnoc-header__brand-shell:hover {
+  box-shadow:
+    0 2px 4px rgb(15 23 42 / 0.06),
+    0 12px 32px -10px rgb(65 105 225 / 0.35);
+  transform: translateY(-1px);
+}
+
+.vnoc-header__logo-img {
+  height: 1.65rem;
+  width: auto;
+  max-width: 8.2rem;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.vnoc-header__channel-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 999px;
+  border: 1px solid rgb(65 105 225 / 0.22);
+  background: linear-gradient(135deg, rgb(65 105 225 / 0.12), rgb(139 92 246 / 0.1));
+  padding: 0.2rem 0.55rem 0.2rem 0.4rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #3558c4;
+  white-space: nowrap;
+}
+
+.vnoc-header__channel-dot {
+  display: block;
+  height: 6px;
+  width: 6px;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 0 3px rgb(34 197 94 / 0.35);
+  animation: vnoc-header-pulse 2s ease-in-out infinite;
+}
+
+@keyframes vnoc-header-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(0.92);
+  }
+}
+
+.vnoc-header__title-cluster {
+  text-align: center;
+  justify-self: center;
+}
+
+.vnoc-header__eyebrow {
+  margin: 0 0 0.1rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.vnoc-header__headline {
+  margin: 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.vnoc-header__headline-muted {
+  color: #1e293b;
+}
+
+.vnoc-header__headline-pop {
+  background: linear-gradient(115deg, #3558c4 0%, #4169e1 38%, #7c3aed 78%, #a855f7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.vnoc-header__toolbar {
+    border-radius: 999px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    justify-self: end;
+    align-items: center;
+    gap: 1rem;
+    display: flex;
+}
+
+.vnoc-header__tool {
+  display: inline-flex;
+  height: 2.35rem;
+  width: 2.35rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #475569;
+  cursor: pointer;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    transform 0.15s ease;
+}
+
+.vnoc-header__tool:hover {
+  background: rgb(65 105 225 / 0.1);
+  color: #1e3a8a;
+}
+
+.vnoc-header__tool--home {
+  text-decoration: none;
+}
+
+.vnoc-header__refresh-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: 0.15rem;
+  border-radius: 999px;
+  border: 1px solid rgb(65 105 225 / 0.2);
+  background-color: #ffffff;
+  padding: 0.3rem 0.75rem 0.3rem 0.45rem;
+  cursor: pointer;
+  color: #334155;
+  transition:
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.15s ease;
+}
+
+.vnoc-header__refresh-pill:hover {
+  background: linear-gradient(145deg, rgb(65 105 225 / 0.16), rgb(139 92 246 / 0.12));
+  box-shadow: 0 0 0 3px rgb(65 105 225 / 0.12);
+}
+
+.vnoc-header__refresh-pill:active {
+  transform: scale(0.97);
+}
+
+.vnoc-header__refresh-ring-wrap {
+  position: relative;
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.vnoc-header__refresh-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(from -90deg, #4169e1 var(--vnoc-p, 0turn), #e2e8f0 0);
+}
+
+.vnoc-header__refresh-ico {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.65rem;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgb(15 23 42 / 0.35);
+  pointer-events: none;
+}
+
+.vnoc-header__refresh-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.08rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.vnoc-header__refresh-num {
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+}
+
+.vnoc-header__refresh-unit {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.vnoc-header__rail {
+  position: relative;
+  z-index: 1;
+  height: 3px;
+  margin: 0 1.25rem 0;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(65 105 225 / 0.35) 20%,
+    rgb(139 92 246 / 0.45) 50%,
+    rgb(65 105 225 / 0.35) 80%,
+    transparent 100%
+  );
+}
+
+/* Footer */
+.vnoc-footer {
+  flex-shrink: 0;
+  border-top: 1px solid #e2e8f0;
+  background: #ffffff;
+  padding: 0.65rem 1rem;
+}
+
+.vnoc-footer__text {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: #94a3b8;
+}
+
+.vnoc-footer__text a {
+  color: #4169e1;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.vnoc-footer__text a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Dark mode ----- */
+.dark .vnoc-layout {
+  /* Action grid: deeper tray + lighter rows so triggers read as tiles (not one flat slab). */
+  --vnoc-panel-surface: var(--app-surface, #111827);
+  --vnoc-panel-border: rgb(51 65 85 / 0.55);
+  --vnoc-accordion-item-bg: #334155;
+  --vnoc-accordion-item-border: rgb(71 85 105 / 0.65);
+  --vnoc-accordion-trigger-fg: var(--app-text, #f1f5f9);
+  --vnoc-accordion-trigger-hover-bg: rgba(255, 255, 255, 0.12);
+  --vnoc-accordion-content-bg: var(--app-canvas, #0b1120);
+  --vnoc-accordion-content-border: rgb(51 65 85 / 0.5);
+  background: var(--app-canvas, #0b1120);
+  color: var(--app-text, #f1f5f9);
+}
+
+.dark .vnoc-layout__body {
+  background: var(--app-canvas, #0b1120);
+}
+
+.dark .vnoc-sidebar {
+  background: var(--app-card-bg, #1e293b);
+  box-shadow:
+    4px 0 28px rgba(0, 0, 0, 0.35),
+    inset -1px 0 0 rgba(255, 255, 255, 0.06);
+}
+
+.dark .vnoc-sidebar__link {
+  color: var(--app-text-muted, #94a3b8);
+}
+
+.dark .vnoc-sidebar__link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--app-text, #f1f5f9);
+}
+
+.dark .vnoc-sidebar__link--active {
+  background: #334155;
+  color: var(--app-text, #f1f5f9);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.dark .vnoc-main {
+  background: #1e293b00;
+  box-shadow: inset 0 1px #ffffff00;
+}
+
+.dark .vnoc-header--creative {
+  border-bottom: none;
+  background: linear-gradient(180deg, #0f172a 0%, #111c2f 50%, #0c1424 100%);
+  box-shadow:
+    0 1px 0 rgb(255 255 255 / 0.06) inset,
+    0 16px 48px -28px rgb(0 0 0 / 0.65);
+}
+
+.dark .vnoc-header__aurora {
+  opacity: 0.35;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 15%, rgb(59 130 246 / 0.35), transparent 50%),
+    radial-gradient(ellipse 70% 50% at 90% 8%, rgb(139 92 246 / 0.3), transparent 45%),
+    radial-gradient(ellipse 55% 70% at 50% 110%, rgb(14 165 233 / 0.15), transparent 55%);
+}
+
+.dark .vnoc-header__eyebrow {
+  color: var(--app-text-muted, #94a3b8);
+}
+
+.dark .vnoc-header__headline-muted {
+  color: var(--app-text, #f1f5f9);
+}
+
+.dark .vnoc-header__headline-pop {
+  background: linear-gradient(115deg, #60a5fa 0%, #818cf8 45%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.dark .vnoc-header__channel-pill {
+  border-color: rgb(96 165 250 / 0.35);
+  background: linear-gradient(135deg, rgb(96 165 250 / 0.15), rgb(129 140 248 / 0.12));
+  color: #93c5fd;
+}
+
+.dark .vnoc-header__toolbar {
+  border-color: rgb(255 255 255 / 0.08);
+  background: rgb(15 23 42 / 0.55);
+  box-shadow: 0 10px 32px -20px rgb(0 0 0 / 0.6);
+}
+
+.dark .vnoc-header__tool {
+  color: var(--app-text-muted, #94a3b8);
+}
+
+.dark .vnoc-header__tool:hover {
+  background: rgb(255 255 255 / 0.08);
+  color: var(--app-text, #f1f5f9);
+}
+
+.dark .vnoc-header__refresh-pill {
+  border-color: rgb(96 165 250 / 0.28);
+  background: linear-gradient(145deg, rgb(96 165 250 / 0.14), rgb(129 140 248 / 0.1));
+  color: var(--app-text-muted, #94a3b8);
+}
+
+.dark .vnoc-header__refresh-pill:hover {
+  background: linear-gradient(145deg, rgb(96 165 250 / 0.22), rgb(129 140 248 / 0.16));
+  box-shadow: 0 0 0 3px rgb(96 165 250 / 0.12);
+}
+
+.dark .vnoc-header__refresh-ring {
+  background: conic-gradient(from -90deg, #60a5fa var(--vnoc-p, 0turn), #334155 0);
+}
+
+.dark .vnoc-header__refresh-num {
+  color: var(--app-text, #f1f5f9);
+}
+
+.dark .vnoc-header__refresh-unit {
+  color: var(--app-text-muted, #94a3b8);
+}
+
+.dark .vnoc-header__rail {
+  opacity: 0.85;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(96 165 250 / 0.35) 22%,
+    rgb(192 132 252 / 0.4) 50%,
+    rgb(96 165 250 / 0.35) 78%,
+    transparent 100%
+  );
+}
+
+.dark .vnoc-footer {
+  border-top-color: var(--app-card-border, #334155);
+  background: var(--app-shell-bg, #1e293b);
+}
+
+.dark .vnoc-footer__text {
+  color: var(--app-text-muted, #94a3b8);
+}
+
+.dark .vnoc-footer__text a {
+  color: var(--app-accent, #60a5fa);
+}
+
+/* 3D-style tilt for VNOC donut charts (paired with drop shadow in Apex options) */
+.vnoc-donut-3d-scene {
+  perspective: 900px;
+  perspective-origin: 50% 40%;
+}
+
+.vnoc-donut-3d-tilt {
+  transform: rotateX(14deg) rotateY(-10deg) scale(1.02);
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease;
+}
+
+.vnoc-donut-3d-tilt:hover {
+  transform: rotateX(11deg) rotateY(-6deg) scale(1.03);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vnoc-donut-3d-tilt {
+    transform: none;
+  }
+  .vnoc-donut-3d-tilt:hover {
+    transform: none;
+  }
+}
+
+/* 3D-style tilt for VNOC column charts */
+.vnoc-column-3d-scene {
+  perspective: 1100px;
+  perspective-origin: 50% 72%;
+}
+
+.vnoc-column-3d-tilt {
+  transform: rotateX(18deg) rotateY(-12deg) scale(1.01);
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease;
+}
+
+.vnoc-column-3d-tilt:hover {
+  transform: rotateX(15deg) rotateY(-8deg) scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vnoc-column-3d-tilt {
+    transform: none;
+  }
+  .vnoc-column-3d-tilt:hover {
+    transform: none;
+  }
+}
+
+/* Last seven days bar chart: x labels centered under columns (Apex uses text-anchor:end when rotated) */
+.vnoc-chart-last-seven-days .apexcharts-xaxis-texts-g text.apexcharts-xaxis-label {
+  text-anchor: middle !important;
+}
+
+/* ApexCharts dark tooltip — white text (theme + panel; matches official dark tooltip) */
+.vnoc-layout .apexcharts-tooltip.apexcharts-theme-dark {
+  color: #fff;
+  background: rgba(30, 30, 30, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.vnoc-layout .apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+  color: #fff;
+}
+
+.vnoc-layout .apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-text-y-label,
+.vnoc-layout .apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-text-y-value {
+  color: #fff;
+}
+
+/* Wholesale request chart — outer panel + accordion cells (tokens on `.vnoc-layout`) */
+.vnoc-wholesale-actions-panel {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background-color: var(--vnoc-panel-surface);
+  border: 1px solid var(--vnoc-panel-border);
+}
+
+.vnoc-wholesale-accordion-item {
+  min-width: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border-radius: 0.375rem;
+  background-color: var(--vnoc-accordion-item-bg);
+  border: 1px solid var(--vnoc-accordion-item-border);
+}
+
+.vnoc-wholesale-accordion-trigger {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  padding: 0.625rem 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  color: var(--vnoc-accordion-trigger-fg);
+}
+
+.vnoc-wholesale-accordion-trigger:hover {
+  background-color: var(--vnoc-accordion-trigger-hover-bg);
+  text-decoration: none;
+}
+
+.vnoc-wholesale-accordion-content {
+  border-top: 1px solid var(--vnoc-accordion-content-border);
+  background-color: var(--vnoc-accordion-content-bg);
+  padding: 0.5rem 0.5rem 0.75rem;
+}

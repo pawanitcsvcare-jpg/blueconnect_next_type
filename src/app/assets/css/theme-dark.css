@@ -1,0 +1,374 @@
+/**
+ * Dark theme overrides for legacy Bootstrap / app.min / custom.css.
+ * Load after app.min.css + custom.css. Relies on html.dark + --app-* from globals.css.
+ */
+
+/* Shell: same tokens as html.dark — `applyThemeMode` sets body[data-topbar|sidebar]. */
+body[data-topbar='dark'] #page-topbar {
+  background-color: var(--app-shell-bg);
+}
+
+body[data-sidebar='dark'] .vertical-menu {
+  background: var(--app-shell-bg);
+  border-color: var(--app-sidebar-border);
+}
+
+body[data-sidebar='dark'] .navbar-brand-box {
+  background-color: var(--app-shell-bg);
+}
+
+/*
+ * next-themes sets `class="dark"` on <html> before body[data-topbar] may match.
+ * Force the same shell surface as the sidebar so the header is not stuck on #fff.
+ */
+html.dark #page-topbar {
+  background-color: var(--app-shell-bg) !important;
+}
+
+html.dark .vertical-menu {
+  background: var(--app-shell-bg) !important;
+  border-color: var(--app-sidebar-border);
+}
+
+html.dark .navbar-brand-box {
+  background-color: var(--app-shell-bg) !important;
+}
+
+@media (max-width: 991px) {
+  html.dark .navbar-header .navbar-brand-box {
+    background-color: var(--app-shell-bg) !important;
+  }
+}
+
+.dark #layout-wrapper {
+  background-color: var(--app-canvas);
+}
+
+.dark .main-content {
+  background-color: var(--app-canvas) !important;
+}
+
+.dark .parent-wrapper,
+.dark .page-content {
+  background-color: transparent;
+  color: var(--app-text);
+}
+
+.dark .card,
+.dark .card.mb-0 {
+  background-color: var(--app-card-bg) !important;
+  border: 1px solid var(--app-card-border) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dark .card .card-header {
+  background-color: var(--app-card-header-bg) !important;
+  color: var(--app-text) !important;
+  border-bottom: 1px solid var(--app-card-border) !important;
+}
+
+.dark .card-body {
+  background-color: transparent;
+  color: var(--app-text);
+}
+
+.dark .dashboar-card-title,
+.dark p.dashboar-card-title {
+  color: var(--app-text-muted) !important;
+}
+
+.dark h3.dashboard-card-value,
+.dark .dashboard-card-value {
+  color: var(--app-text) !important;
+}
+
+.dark .text-muted,
+.dark p.text-muted,
+.dark .text-muted.mb-0 {
+  color: var(--app-text-muted) !important;
+}
+
+.dark .budget-success {
+  background-color: rgba(56, 199, 134, 0.22) !important;
+  color: #4ade80 !important;
+}
+
+.dark .budget-danger {
+  background-color: rgba(237, 94, 73, 0.22) !important;
+  color: #fb923c !important;
+}
+
+.dark .apexcharts-legend-text {
+  color: var(--app-text-muted) !important;
+}
+
+.dark .apexcharts-text,
+.dark .apexcharts-datalabel-label,
+.dark .apexcharts-datalabel-value {
+  fill: var(--app-text-muted) !important;
+}
+
+.dark .apexcharts-title-text {
+  fill: var(--app-text) !important;
+}
+
+.dark .apexcharts-xaxis-label,
+.dark .apexcharts-yaxis-label {
+  fill: var(--app-text-muted) !important;
+}
+
+.dark .dashboard-bottom-graph-section-item_click_section {
+  border-color: rgba(96, 165, 250, 0.25);
+}
+
+.dark .dashboard-bottom-graph-section-item_click_section::after {
+  background: var(--app-chart-overlay);
+}
+
+.dark .dashboardimg1section_img {
+  opacity: 0.88;
+  filter: brightness(0.9) contrast(1.05);
+}
+
+.dark .sub-cardsa-content {
+  background-color: var(--app-card-bg) !important;
+  color: var(--app-text) !important;
+}
+
+.dark .sub-cardsa-content h3 {
+  color: var(--app-text-muted) !important;
+}
+
+.dark .table.support-inquiries-table-dashboard th {
+  background-color: var(--app-surface-muted) !important;
+  color: var(--app-text-muted) !important;
+}
+
+.dark .table.support-inquiries-table-dashboard td {
+  color: var(--app-text) !important;
+  border-color: var(--app-card-border) !important;
+}
+
+.dark td.text-muted-table {
+  color: var(--app-text-muted) !important;
+}
+
+.dark .vertical-scroll {
+  scrollbar-color: rgba(148, 163, 184, 0.45) transparent;
+}
+
+.dark .vertical-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.45);
+}
+
+.dark .vertical-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.65);
+}
+
+.dark .failedapi-dashboard:before {
+  background-color: var(--app-card-border) !important;
+}
+
+.dark input:autofill,
+.dark input:autofill:hover,
+.dark input:autofill:focus {
+  box-shadow: 0 0 0 1000px var(--app-surface-muted) inset !important;
+  -webkit-text-fill-color: var(--app-text) !important;
+}
+
+.dark .page-title-box .page-title {
+  color: var(--app-text) !important;
+}
+
+.dark .footer {
+  background-color: var(--app-card-header-bg) !important;
+  border-color: var(--app-card-border) !important;
+  color: var(--app-text-muted);
+}
+
+.dark .footer a {
+  color: var(--app-accent);
+}
+
+.dark .globally-sar-heading,
+.dark .globally-ser-scrollsec {
+  color: var(--app-text-muted);
+}
+
+.dark .border-gray-250 {
+  border-color: var(--app-card-border) !important;
+}
+
+.dark .cccc {
+  color: var(--app-text);
+}
+
+.dark .allda-dahboard-chart {
+  background: transparent;
+}
+
+.dark .card-cahert-small {
+  background-color: var(--app-card-bg);
+  border-color: var(--app-card-border);
+}
+
+.dark .chart-row-line-main {
+  border-bottom-color: var(--app-card-border);
+}
+
+.dark .chart-row-line-item-under {
+  background-color: var(--app-surface-muted);
+}
+
+.dark .chart-row-line-main.bulk-hovering .chart-row-line-item-under.is-active {
+  background-color: #334155;
+}
+
+.dark .chart-row-line-main-legents-item {
+  color: var(--app-text-muted);
+}
+
+.dark .bulk-uploading-overview-container-bottom-item {
+  color: var(--app-text);
+}
+
+.dark .bulk-hover-tooltip {
+  background: var(--app-card-bg);
+  border-color: var(--app-card-border);
+  color: var(--app-text);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
+}
+
+.dark .com-complete-stock-report {
+  --cssr-bg: #1e293b;
+  --cssr-text: #f1f5f9;
+  --cssr-muted: #94a3b8;
+}
+
+.dark .cssr-sim-icon-wrap {
+  background: var(--app-card-header-bg);
+  box-shadow: none;
+}
+
+/* ----- Header: global search (custom.css wins over Tailwind without !important) ----- */
+.dark .app-search .form-control#customSearchInput,
+html.dark .app-search .form-control#customSearchInput {
+  color: #e2e8f0 !important;
+  background-color: #101928 !important;
+  border: 1px solid #101928 !important;
+  box-shadow: inset 0 1px 2px #00000040 !important;
+}
+
+.dark .app-search .form-control#customSearchInput::placeholder,
+html.dark .app-search .form-control#customSearchInput::placeholder {
+  color: #94a3b8 !important;
+}
+
+.dark .top-search-icons,
+html.dark .top-search-icons {
+  color: #94a3b8 !important;
+}
+
+.dark .shortcut-globally-search,
+html.dark .shortcut-globally-search {
+  color: #cbd5e1 !important;
+}
+
+.dark .shortcut-globally-search span,
+html.dark .shortcut-globally-search span {
+  color: inherit !important;
+  line-height: inherit !important;
+}
+
+.dark .ai-mode-button-parent,
+html.dark .ai-mode-button-parent {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+  background-image: none !important;
+}
+
+.dark .ai-mode-button-parent:hover,
+html.dark .ai-mode-button-parent:hover {
+  background-color: #1d4ed8 !important;
+  color: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Sidebar compact search (SideSearch) */
+.dark .globally-searchbar input,
+html.dark .globally-searchbar input {
+  color: #e2e8f0 !important;
+  background-color: #101928 !important;
+  border: 1px solid #101928 !important;
+  box-shadow: inset 0 1px 2px #00000040 !important;
+}
+
+.dark .globally-searchbar input::placeholder,
+html.dark .globally-searchbar input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.dark .globally-searchbar .ri-search-line,
+html.dark .globally-searchbar .ri-search-line {
+  color: #94a3b8 !important;
+}
+
+.dark .custom-search-dropdown,
+html.dark .custom-search-dropdown {
+  background: var(--app-card-bg) !important;
+  border-color: var(--app-card-border) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+.dark .custom-search-item:hover,
+html.dark .custom-search-item:hover {
+  background: var(--app-surface-muted) !important;
+}
+
+/* ----- Sidebar: expanded sub-menus stay dark (fix light #ecf1f9 panel + contrast) ----- */
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li a {
+  color: #cbd5e1 !important;
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li a i {
+  color: #94a3b8 !important;
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li a:hover {
+  color: #f8fafc !important;
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li a:hover i {
+  color: #e2e8f0 !important;
+}
+
+/* Active parent row (e.g. Customer) — override light .mm-active from app.min */
+html.dark body[data-sidebar='dark'] #sidebar-menu .mm-active > a {
+  background-color: rgba(59, 130, 246, 0.22) !important;
+  color: #bfdbfe !important;
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu .mm-active > a i {
+  color: #93c5fd !important;
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li.active > a,
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li.mm-active > a {
+  background-color: rgba(59, 130, 246, 0.18) !important;
+  color: #e0f2fe !important;
+}
+
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li.active > a i,
+html.dark body[data-sidebar='dark'] #sidebar-menu ul li ul.sub-menu li.mm-active > a i {
+  color: #7dd3fc !important;
+}
+html.dark .vertical-menu .vertical-menu-btn {
+  color: #7f8b9d !important;
+}

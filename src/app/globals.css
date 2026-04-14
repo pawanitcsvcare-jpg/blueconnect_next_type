@@ -48,13 +48,58 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* App shell tokens — use `var(--app-*)` in custom CSS / new components.
+ * Day/night: `.dark` on <html> (see layout + `applyThemeMode`).
+ * More palettes later, e.g. `:root[data-color-theme="ocean"] { --app-accent: … }` on <html>. */
 :root {
+  --app-canvas: #d8e0f1;
+  --app-surface: #ffffff;
+  --app-surface-muted: #e0e6f3;
+  --app-border: #e5e7eb;
+  --app-text: #111827;
+  --app-text-muted: #6b7280;
+  --app-accent: #4387f6;
+  --app-accent-hover: #2f6fd6;
+  /* Topbar + sidebar chrome share one token */
+  --app-shell-bg: #ffffff;
+  --app-sidebar-border: #e5e7eb;
+  /* Sidebar menu (metismenu) — replaces hardcoded #4e4e50 / hover in app.min.css */
+  --app-sidebar-link: #4e4e50;
+  --app-sidebar-link-icon: #4e4e50;
+  --app-sidebar-link-hover: #165fad;
+  --app-sidebar-link-hover-bg: #ccdefb;
+  --app-sidebar-link-hover-icon: #0f66c5;
+  --app-sidebar-submenu-bg: #ecf1f9;
+  --app-sidebar-submenu-link: #7c8189;
+  --app-sidebar-submenu-link-hover: #165fad;
+  --app-sidebar-active-fg: #2a68cd;
+  --app-sidebar-active-bg: #ccdefb;
+  --app-sidebar-active-icon: #2a68cd;
+  --app-sidebar-active-ring: #3677e1;
+  --app-sidebar-section-label: #6b7280;
+  --app-input-bg: #e0e6f3;
+  --app-input-placeholder: #9ca3af;
+  --app-card-bg: #ffffff;
+  --app-card-header-bg: #ffffff;
+  --app-card-border: #e2e8f0;
+  --app-table-header-bg: #d7e5fb;
+  --app-table-header-fg: #0e121f;
+  --app-table-row-stripe: rgb(15 23 42 / 0.04);
+  /* Pills / segmented controls: active chip on tinted track */
+  --app-pill-track-bg: #e8edf7;
+  --app-pill-active-bg: #ffffff;
+  --app-chart-overlay: linear-gradient(
+    145deg,
+    rgb(241 247 255) 0%,
+    rgb(255 255 255 / 55%) 40%,
+    rgb(236 239 243 / 32%) 100%
+  );
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover: var(--app-card-bg);
+  --popover-foreground: var(--app-text);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
@@ -84,12 +129,52 @@
 }
 
 .dark {
+  --app-canvas: #0b1120;
+  --app-surface: #111827;
+  --app-surface-muted: #1e293b;
+  --app-border: rgb(55 65 81 / 0.6);
+  --app-text: #f1f5f9;
+  --app-text-muted: #94a3b8;
+  --app-accent: #60a5fa;
+  --app-accent-hover: #3b82f6;
+  --app-shell-bg: #1e293b;
+  --app-sidebar-border: #242c36;
+  --app-sidebar-link: #b8bbc0;
+  --app-sidebar-link-icon: #b8bbc0;
+  --app-sidebar-link-hover: #cdd2da;
+  --app-sidebar-link-hover-bg: rgba(255, 255, 255, 0.06);
+  --app-sidebar-link-hover-icon: #cdd2da;
+  --app-sidebar-submenu-bg: rgba(44, 60, 87, 0.65);
+  --app-sidebar-submenu-link: #b8bbc0;
+  --app-sidebar-submenu-link-hover: #cdd2da;
+  --app-sidebar-active-fg: #e0f2fe;
+  --app-sidebar-active-bg: rgba(59, 130, 246, 0.22);
+  --app-sidebar-active-icon: #93c5fd;
+  --app-sidebar-active-ring: #7dd3fc;
+  --app-sidebar-section-label: #7d848f;
+  --app-input-bg: rgba(255, 255, 255, 0.07);
+  --app-input-placeholder: rgba(255, 255, 255, 0.45);
+  --app-card-bg: #1e293b;
+  --app-card-header-bg: #1e293b;
+  --app-card-border: #1e293b;
+  --app-table-header-bg: #334155;
+  --app-table-header-fg: #fff;
+  --app-table-row-stripe: rgb(255 255 255 / 0.06);
+  --app-pill-track-bg: #1e293b;
+  --app-pill-active-bg: #334155;
+  --app-chart-overlay: linear-gradient(
+    145deg,
+    rgb(15 23 42 / 0.92) 0%,
+    rgb(30 41 59 / 0.78) 45%,
+    rgb(15 23 42 / 0.55) 100%
+  );
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
+  /* Match legacy cards / inputs — portaled selects inherit this */
+  --popover: var(--app-card-bg);
+  --popover-foreground: var(--app-text);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
   --secondary: oklch(0.269 0 0);
@@ -115,6 +200,23 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Legacy Bootstrap body attr: dark sidebar when `html` is not yet `.dark`. */
+body[data-sidebar='dark'] {
+  --app-sidebar-link: #b8bbc0;
+  --app-sidebar-link-icon: #b8bbc0;
+  --app-sidebar-link-hover: #cdd2da;
+  --app-sidebar-link-hover-bg: rgba(255, 255, 255, 0.06);
+  --app-sidebar-link-hover-icon: #cdd2da;
+  --app-sidebar-submenu-bg: rgba(30, 41, 59, 0.65);
+  --app-sidebar-submenu-link: #b8bbc0;
+  --app-sidebar-submenu-link-hover: #cdd2da;
+  --app-sidebar-active-fg: #e0f2fe;
+  --app-sidebar-active-bg: rgba(59, 130, 246, 0.22);
+  --app-sidebar-active-icon: #93c5fd;
+  --app-sidebar-active-ring: #7dd3fc;
+  --app-sidebar-section-label: #7d848f;
 }
 
 @layer base {

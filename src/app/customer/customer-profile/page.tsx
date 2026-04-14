@@ -21,7 +21,7 @@ function CustomerProfilePage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-4 xl:gap-5 mt-3 mb-4">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 xl:gap-5 xl:gap-5 mt-3 mb-4">
         <CustomerProfileNotes
           notes={demoCustomerNotes}
           onExpand={() => toast.message('Open full notes view', { description: 'Wire this to a modal or route when ready.' })}

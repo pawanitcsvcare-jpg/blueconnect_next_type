@@ -87,8 +87,7 @@ export default function CustomerProfileNotes({
                     </p>
                   </div>
                   <span
-                    className="inline-flex w-fit shrink-0 rounded-full border-2 border-emerald-500 bg-emerald-50 px-2.5 h-7
-                     py-1 text-xs font-semibold whitespace-nowrap text-emerald-900 shadow-sm dark:border-emerald-500 dark:bg-emerald-950/60 dark:text-emerald-100"
+                    className="inline-flex w-fit shrink-0 rounded-full border-2 border-emerald-500 bg-emerald-50 px-2.5 h-7 py-1 text-xs font-semibold whitespace-nowrap text-emerald-900 shadow-sm dark:border-emerald-500 dark:bg-emerald-950/60 dark:text-emerald-100"
                     title={note.date}
                   >
                     {note.date}

@@ -1,9 +1,14 @@
 /** Demo data for customer profile UI — replace with API data later. */
 
+/** Line / account status for the profile header badge (wire from API). */
+export type DemoLineStatus = 'active' | 'inactive'
+
 export const demoProfile = {
   customerId: '832559',
   msisdn: '206-845-3761',
   avatarLetter: 'B',
+  /** Shown top-right on the profile card with icon. */
+  lineStatus: 'active' satisfies DemoLineStatus,
   sidebarRows: [
     { label: 'Vendor ID', value: 'VND-10492' },
     { label: 'City', value: 'Seattle' },

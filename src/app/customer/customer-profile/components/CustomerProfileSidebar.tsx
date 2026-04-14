@@ -4,12 +4,14 @@ import type { LucideIcon } from 'lucide-react'
 import {
   Building2,
   Calendar,
+  CheckCircle2,
   CreditCard,
   Hash,
   MapPin,
   Radio,
   Smartphone,
   Voicemail,
+  XCircle,
 } from 'lucide-react'
 
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
@@ -42,12 +44,30 @@ export default function CustomerProfileSidebar() {
   const p = demoProfile
 
   return (
-    <aside className="w-full shrink-0 overflow-hidden rounded-2xl border border-indigo-100/60 bg-white shadow-[0_8px_30px_-12px_rgba(79,70,229,0.12)] dark:border-indigo-900/40 dark:bg-slate-950 dark:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)] xl:w-96 2xl:w-md">
+    <aside className="w-full shrink-0 overflow-hidden rounded-2xl bg-white shadow-[0_8px_30px_-12px_rgba(79,70,229,0.12)] dark:border-indigo-900/40 dark:bg-slate-950 dark:shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)] xl:w-96 2xl:w-md">
       <div className="relative overflow-hidden rounded-t-2xl border-b border-indigo-100/50 bg-linear-to-b from-indigo-50/90 via-white to-white p-5 dark:border-indigo-900/40 dark:from-indigo-950/40 dark:via-slate-950 dark:to-slate-950">
         <div
-          className="pointer-events-none absolute -right-10 -top-10 size-32 rounded-full bg-sky-300/25 blur-2xl dark:bg-indigo-600/15"
+          className="pointer-events-none absolute -right-10 -top-10 size-32  rounded-full bg-sky-300/25 blur-2xl dark:bg-indigo-600/15"
           aria-hidden
         />
+        <div
+          role="status"
+          aria-label={
+            p.lineStatus === 'active' ? 'Line status: active' : 'Line status: inactive'
+          }
+          className={`absolute right-3 top-3 inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-[11px] font-semibold tracking-wide text-white uppercase shadow-sm ${
+            p.lineStatus === 'active'
+              ? 'border-emerald-600/90 bg-emerald-500 dark:border-emerald-400 dark:bg-emerald-600'
+              : 'border-red-600/90 bg-red-500 dark:border-red-400 dark:bg-red-600'
+          }`}
+        >
+          {p.lineStatus === 'active' ? (
+            <CheckCircle2 className="size-3.5 shrink-0" strokeWidth={2.25} aria-hidden />
+          ) : (
+            <XCircle className="size-3.5 shrink-0" strokeWidth={2.25} aria-hidden />
+          )}
+          {p.lineStatus === 'active' ? 'Active' : 'Inactive'}
+        </div>
         <div className="relative flex flex-col items-center text-center">
           <div className="relative">
             <div
@@ -61,8 +81,10 @@ export default function CustomerProfileSidebar() {
               <AvatarFallback>{p.avatarLetter}</AvatarFallback>
             </Avatar>
             <span
-              className="absolute top-1 right-1 size-2.5 rounded-full bg-emerald-500 shadow-[0_0_0_2px_rgba(255,255,255,1)] ring-2 ring-white dark:shadow-[0_0_0_2px_rgba(2,6,23,1)] dark:ring-slate-950"
-              title="Online"
+              className={`absolute top-0 right-0 size-2.5 rounded-full shadow-[0_0_0_2px_rgba(255,255,255,1)] ring-2 ring-white dark:shadow-[0_0_0_2px_rgba(2,6,23,1)] dark:ring-slate-950 ${
+                p.lineStatus === 'active' ? 'bg-emerald-500' : 'bg-red-500'
+              }`}
+              title={p.lineStatus === 'active' ? 'Line active' : 'Line inactive'}
               aria-hidden
             />
           </div>

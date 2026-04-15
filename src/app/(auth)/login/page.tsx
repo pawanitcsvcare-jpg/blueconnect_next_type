@@ -4,12 +4,13 @@ import * as React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Shield } from 'lucide-react'
+import { useTheme } from 'next-themes'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
+import { Field, FieldGroup, FieldLabel } from '@/components/ui/field'
+import { FormFieldControl } from '@/components/ui/form-field-control'
 import { cn } from '@/lib/utils'
 
 const VCARE_SYSTEM_NOTICE =
@@ -350,8 +351,21 @@ function LoginFormPanelBackground() {
 
 export default function LoginPage() {
   const router = useRouter()
+  const { setTheme } = useTheme()
   const [remember, setRemember] = React.useState(false)
   const brandBDecorId = React.useId().replace(/:/g, '')
+
+  React.useLayoutEffect(() => {
+    const stored = window.localStorage.getItem('theme')
+    const prior: 'dark' | 'light' | 'system' =
+      stored === 'dark' || stored === 'light' || stored === 'system'
+        ? stored
+        : 'system'
+    setTheme('light')
+    return () => {
+      setTheme(prior)
+    }
+  }, [setTheme])
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
@@ -542,58 +556,55 @@ export default function LoginPage() {
             </p>
           </div>
 
-          <form className="space-y-5" onSubmit={handleSubmit} noValidate>
-            <div className="space-y-2">
-              <Label htmlFor="login-email">Username</Label>
-              <Input
-                id="login-username"
-                name="username"
+          <form onSubmit={handleSubmit} noValidate>
+            <FieldGroup>
+              <FormFieldControl
                 type="text"
-                autoComplete="username"
-                placeholder="Enter your username"
+                id="login-username"
+                label="Username"
                 required
-                className="mb-0"
+                placeholder="Enter your username"
+                autoComplete="username"
               />
-            </div>
 
-            <div className="space-y-2">
-              <div className="flex items-center justify-between gap-2">
-                <Label htmlFor="login-password">Password</Label>
-                <Link
-                  href="#"
-                  className="text-xs font-medium text-[#4169E1] hover:underline"
-                >
-                  Forgot password?
-                </Link>
-              </div>
-              <Input
+              <FormFieldControl
+                type="text"
                 id="login-password"
-                name="password"
-                type="password"
+                label="Password"
+                required
+                inputType="password"
                 autoComplete="current-password"
                 placeholder="••••••••"
-                required
-                className="mb-0"
+                labelEnd={
+                  <Link
+                    href="#"
+                    className="text-xs font-medium text-[#4169E1] hover:underline"
+                  >
+                    Forgot password?
+                  </Link>
+                }
               />
-            </div>
 
-            <div className="flex items-center gap-2">
-              <Checkbox
-                id="login-remember"
-                checked={remember}
-                onCheckedChange={(checked) => setRemember(checked)}
-              />
-              <Label
-                htmlFor="login-remember"
-                className="cursor-pointer font-normal text-neutral-600"
-              >
-                Remember me on this device
-              </Label>
-            </div>
+              <Field orientation="horizontal" className="items-center gap-2">
+                <Checkbox
+                  id="login-remember"
+                  checked={remember}
+                  onCheckedChange={(checked) =>
+                    setRemember(checked === true)
+                  }
+                />
+                <FieldLabel
+                  htmlFor="login-remember"
+                  className="mb-0 w-auto cursor-pointer font-normal text-neutral-600"
+                >
+                  Remember me on this device
+                </FieldLabel>
+              </Field>
 
-            <Button type="submit" variant="primary" className="h-11 w-full">
-              Sign in
-            </Button>
+              <Button type="submit" variant="primary" className="h-11 w-full">
+                Sign in
+              </Button>
+            </FieldGroup>
           </form>
 
           <p className="mt-8 text-center text-xs text-neutral-500">

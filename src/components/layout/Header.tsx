@@ -127,18 +127,18 @@ function Header() {
                                     </div>
                                 </div>
                             </div>
-                            <a
+                            <Link
                                 className="dropdown-item flex items-center font-medium gap-2 px-3 py-2 text-gray-800 font-size-14 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-white/10"
-                                href="#">
+                                href="/profile">
                                 <i className="ri-user-line text-base text-gray-600 dark:text-gray-400" aria-hidden />
                                 <span className="align-middle">View as User</span>
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 className="dropdown-item flex items-center gap-2 px-3 py-2 text-gray-800 font-size-14 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-white/10"
-                                href="#">
+                                href="/login">
                                 <i className="ri-logout-box-line text-gray-800 dark:text-gray-300"></i>
                                 <span className="align-middle">Logout</span>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                   

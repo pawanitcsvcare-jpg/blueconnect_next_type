@@ -36,10 +36,10 @@ export type GlobalAccordionProps = {
 }
 
 const itemShellClass =
-  'border-b border-neutral-200/90 px-1 last:border-b-0 dark:border-neutral-700/90'
+  ''
 
 const triggerShellClass = cn(
-  'accrodian-bg items-center gap-3 rounded-lg py-4 pr-1 pl-2 text-sm font-medium text-slate-800 no-underline transition-colors hover:bg-slate-50/95 hover:no-underline focus-visible:ring-2 focus-visible:ring-indigo-200/80 focus-visible:ring-offset-1 dark:text-slate-100 dark:hover:bg-slate-800/60 **:data-[slot=accordion-trigger-icon]:text-slate-400 dark:**:data-[slot=accordion-trigger-icon]:text-slate-500',
+  'accrodian-bg items-center bg-blue-100 hover:bg-blue-100 dark:bg-[#101928] cursor-pointer dark:hover:bg-[#101928] dark:text-white mb-2 gap-3 rounded-lg py-4 pr-1 pl-2 text-sm font-medium text-slate-800 no-underline transition-colors hover:no-underline focus-visible:ring-2 focus-visible:ring-indigo-200/80 focus-visible:ring-offset-1  **:data-[slot=accordion-trigger-icon]:text-slate-400 dark:**:data-[slot=accordion-trigger-icon]:text-slate-500',
 )
 
 /**

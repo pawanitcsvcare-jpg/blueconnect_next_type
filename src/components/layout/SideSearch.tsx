@@ -261,7 +261,7 @@ export default function SideSearch() {
     ) : null
 
   return (
-    <div ref={containerRef} className="relative z-100 px-2">
+    <div ref={containerRef} className="relative z-100">
       <div className="globally-searchbar">
         <div className="relative">
           <div

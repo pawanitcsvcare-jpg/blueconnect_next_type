@@ -199,7 +199,7 @@ const handleClick = () => {
                         </li>
 
                         <li>
-                            <Link href="#" className="waves-effect">
+                            <Link href="/need-help" className="waves-effect">
                                 <i className="ri-headphone-line"></i>
                                 <span>Need Help?</span>
                             </Link>

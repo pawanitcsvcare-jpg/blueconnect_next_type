@@ -1,6 +1,7 @@
 'use client'
 
 import type { SortingFn } from '@tanstack/react-table'
+import Link from 'next/link'
 
 import { createColumns } from '@/components/datatable/Column'
 import { Button } from '@/components/ui/button'
@@ -37,6 +38,14 @@ const timestampSort: SortingFn<SubscriberRow> = (rowA, rowB, columnId) => {
   const a = parseDisplayTimestamp(String(rowA.getValue(columnId)))
   const b = parseDisplayTimestamp(String(rowB.getValue(columnId)))
   return a - b
+}
+
+function customerProfileHref(row: SubscriberRow): string {
+  const params = new URLSearchParams({
+    subscriberId: row.id,
+    msisdn: row.phone.replace(/\D/g, ''),
+  })
+  return `/customer/customer-profile?${params.toString()}`
 }
 
 /** Sample data — replace with API rows. */
@@ -141,14 +150,18 @@ export function createSubscriberColumns(onReprocess: (row: SubscriberRow) => voi
       header: 'MSISDN',
       sortable: true,
       cell: (row) => (
-        <span
+        <Link
+          href={customerProfileHref(row)}
           className={cn(
-            'inline-block rounded-md px-2 py-0.5 text-sm tabular-nums',
+            'inline-block rounded-md px-2 py-0.5 text-sm tabular-nums no-underline',
             'bg-[#8991f1] text-white text-[13px]',
+            'transition-[filter,box-shadow] hover:brightness-110 hover:underline',
+            'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#6b63d9] focus-visible:ring-offset-2',
           )}
+          title={`View customer profile — ${row.phone}`}
         >
           {row.phone}
-        </span>
+        </Link>
       ),
     },
     { key: 'iccid', header: 'SIM', sortable: true },

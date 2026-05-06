@@ -2008,3 +2008,382 @@ h3.dashboard-card-value.mb-3 {
 
 
 
+/* theme1 mode start css */
+/*
+ * Add class `theme1` on <html> for a coordinated “Deep Harbor” shell: navy header +
+ * sidebar with light nav text. Main content keeps normal :root / .dark tokens unless
+ * overridden elsewhere.
+ */
+html.theme1 {
+  --app-shell-bg: #132337;
+  --app-sidebar-border: rgb(255 255 255 / 0.1);
+  --app-sidebar-link: #cbd5e1;
+  --app-sidebar-link-icon: #94a3b8;
+  --app-sidebar-link-hover: #f8fafc;
+  --app-sidebar-link-hover-bg: rgb(255 255 255 / 0.08);
+  --app-sidebar-link-hover-icon: #e2e8f0;
+  --app-sidebar-submenu-bg: rgb(0 0 0 / 0.22);
+  --app-sidebar-submenu-link: #94a3b8;
+  --app-sidebar-submenu-link-hover: #e2e8f0;
+  --app-sidebar-active-fg: #f0f9ff;
+  --app-sidebar-active-bg: rgb(56 189 248 / 0.2);
+  --app-sidebar-active-icon: #7dd3fc;
+  --app-sidebar-active-ring: #38bdf8;
+  --app-sidebar-section-label: #64748b;
+}
+
+html.theme1 #page-topbar {
+  background-color: var(--app-shell-bg) !important;
+  border-bottom-color: rgb(255 255 255 / 0.1) !important;
+}
+
+html.theme1 .vertical-menu {
+  background: var(--app-shell-bg) !important;
+  border-color: var(--app-sidebar-border);
+}
+
+html.theme1 .navbar-brand-box {
+  background-color: var(--app-shell-bg) !important;
+}
+
+@media (max-width: 991px) {
+  html.theme1 .navbar-header .navbar-brand-box {
+    background-color: var(--app-shell-bg) !important;
+  }
+}
+
+html.theme1 body.sidebar-open aside.vertical-menu {
+  background-color: var(--app-shell-bg) !important;
+}
+
+/* Top bar: contrast on navy (Tailwind utilities on Header.tsx) */
+html.theme1 #page-topbar .border-gray-200 {
+  border-color: rgb(255 255 255 / 0.14) !important;
+}
+
+html.theme1 #page-topbar #vertical-menu-btn {
+  border-color: rgb(255 255 255 / 0.18) !important;
+  color: #e2e8f0 !important;
+}
+
+html.theme1 #page-topbar #vertical-menu-btn:hover {
+  background-color: rgb(255 255 255 / 0.08) !important;
+}
+
+html.theme1 #customSearchInput {
+  background-color: rgb(255 255 255 / 0.07) !important;
+  border-color: rgb(255 255 255 / 0.14) !important;
+  color: #f1f5f9 !important;
+}
+
+html.theme1 #customSearchInput::placeholder {
+  color: rgb(203 213 225 / 0.65) !important;
+}
+
+html.theme1 #page-topbar .top-search-icons,
+html.theme1 #page-topbar .ri-search-line {
+  color: #94a3b8 !important;
+}
+
+html.theme1 #page-topbar .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+html.theme1 #page-topbar .text-gray-500 {
+  color: #94a3b8 !important;
+}
+
+html.theme1 #page-topbar .shortcut-globally-search {
+  border-color: rgb(255 255 255 / 0.2) !important;
+  color: #cbd5e1 !important;
+  background-color: rgb(255 255 255 / 0.06) !important;
+}
+
+html.theme1 #page-topbar .ai-mode-button-parent {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+html.theme1 #page-topbar .ai-mode-button-parent:hover {
+  background-color: #1d4ed8 !important;
+}
+
+/* Sidebar search (same idea as html.dark in theme-dark.css) */
+html.theme1 .globally-searchbar input {
+  color: #e2e8f0 !important;
+  background-color: rgb(0 0 0 / 0.25) !important;
+  border: 1px solid rgb(255 255 255 / 0.12) !important;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.25) !important;
+}
+
+html.theme1 .globally-searchbar input::placeholder {
+  color: #94a3b8 !important;
+}
+
+html.theme1 .globally-searchbar .ri-search-line {
+  color: #94a3b8 !important;
+}
+
+/* Collapsed sidebar toggle inside .vertical-menu */
+html.theme1 .vertical-menu .vertical-menu-btn {
+  color: #94a3b8 !important;
+}
+
+/* theme1 mode end css */
+
+
+
+
+
+
+
+
+/* theme2 mode start css */
+/*
+ * Theme2: mint-teal light shell.
+ * Use class `theme2` on <html> for a distinct palette from theme1.
+ */
+html.theme2 {
+  --app-shell-bg: #1f3835;
+  --app-sidebar-border: rgb(255 255 255 / 0.12);
+  --app-sidebar-link: #c9e3df;
+  --app-sidebar-link-icon: #9fc0bb;
+  --app-sidebar-link-hover: #f0fdfa;
+  --app-sidebar-link-hover-bg: rgb(255 255 255 / 0.08);
+  --app-sidebar-link-hover-icon: #dff7f3;
+  --app-sidebar-submenu-bg: rgb(0 0 0 / 0.22);
+  --app-sidebar-submenu-link: #9fc0bb;
+  --app-sidebar-submenu-link-hover: #e6fbf7;
+  --app-sidebar-active-fg: #ecfeff;
+  --app-sidebar-active-bg: rgb(45 212 191 / 0.22);
+  --app-sidebar-active-icon: #7ce7d8;
+  --app-sidebar-active-ring: #2dd4bf;
+  --app-sidebar-section-label: #88aaa4;
+}
+
+html.theme2 #page-topbar {
+  background-color: var(--app-shell-bg) !important;
+  border-bottom-color: rgb(255 255 255 / 0.12) !important;
+}
+
+html.theme2 .vertical-menu {
+  background: var(--app-shell-bg) !important;
+  border-color: var(--app-sidebar-border);
+}
+
+html.theme2 .navbar-brand-box {
+  background-color: var(--app-shell-bg) !important;
+}
+
+@media (max-width: 991px) {
+  html.theme2 .navbar-header .navbar-brand-box {
+    background-color: var(--app-shell-bg) !important;
+  }
+}
+
+html.theme2 body.sidebar-open aside.vertical-menu {
+  background-color: var(--app-shell-bg) !important;
+}
+
+/* Top bar */
+html.theme2 #page-topbar .border-gray-200 {
+  border-color: rgb(255 255 255 / 0.14) !important;
+}
+
+html.theme2 #page-topbar #vertical-menu-btn {
+  border-color: rgb(255 255 255 / 0.18) !important;
+  color: #d7ece9 !important;
+}
+
+html.theme2 #page-topbar #vertical-menu-btn:hover {
+  background-color: rgb(255 255 255 / 0.08) !important;
+}
+
+html.theme2 #customSearchInput {
+  background-color: rgb(255 255 255 / 0.08) !important;
+  border-color: rgb(255 255 255 / 0.16) !important;
+  color: #ecfeff !important;
+}
+
+html.theme2 #customSearchInput::placeholder {
+  color: rgb(203 235 230 / 0.72) !important;
+}
+
+html.theme2 #page-topbar .top-search-icons,
+html.theme2 #page-topbar .ri-search-line {
+  color: #9fc0bb !important;
+}
+
+html.theme2 #page-topbar .text-gray-800 {
+  color: #ecfeff !important;
+}
+
+html.theme2 #page-topbar .text-gray-500 {
+  color: #9fc0bb !important;
+}
+
+html.theme2 #page-topbar .shortcut-globally-search {
+  border-color: rgb(255 255 255 / 0.2) !important;
+  color: #c9e3df !important;
+  background-color: rgb(255 255 255 / 0.06) !important;
+}
+
+html.theme2 #page-topbar .ai-mode-button-parent {
+  background-color: #0f766e !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+html.theme2 #page-topbar .ai-mode-button-parent:hover {
+  background-color: #0c5a55 !important;
+}
+
+/* Sidebar search */
+html.theme2 .globally-searchbar input {
+  color: #dff7f3 !important;
+  background-color: rgb(0 0 0 / 0.24) !important;
+  border: 1px solid rgb(255 255 255 / 0.12) !important;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.25) !important;
+}
+
+html.theme2 .globally-searchbar input::placeholder {
+  color: #9fc0bb !important;
+}
+
+html.theme2 .globally-searchbar .ri-search-line {
+  color: #9fc0bb !important;
+}
+
+html.theme2 .vertical-menu .vertical-menu-btn {
+  color: #9fc0bb !important;
+}
+
+/* theme2 mode end css */
+
+
+
+/* theme3 mode start css */
+/*
+ * Theme3: aurora gradient shell (smoother and premium).
+ * Use class `theme3` on <html>.
+ */
+html.theme3 {
+  --app-shell-bg: #1a1f3f;
+  --app-sidebar-border: rgb(255 255 255 / 0.13);
+  --app-sidebar-link: #d9ddf6;
+  --app-sidebar-link-icon: #b2bbec;
+  --app-sidebar-link-hover: #ffffff;
+  --app-sidebar-link-hover-bg: rgb(255 255 255 / 0.11);
+  --app-sidebar-link-hover-icon: #ffffff;
+  --app-sidebar-submenu-bg: rgb(7 13 36 / 0.6);
+  --app-sidebar-submenu-link: #c1c9ef;
+  --app-sidebar-submenu-link-hover: #ffffff;
+  --app-sidebar-active-fg: #ffffff;
+  --app-sidebar-active-bg: rgb(167 139 250 / 0.32);
+  --app-sidebar-active-icon: #e9d5ff;
+  --app-sidebar-active-ring: #c4b5fd;
+  --app-sidebar-section-label: #98a5df;
+}
+
+html.theme3 #page-topbar {
+  background-color: var(--app-shell-bg) !important;
+  background-image:
+    radial-gradient(circle at 12% -20%, rgb(168 85 247 / 0.38), transparent 42%),
+    radial-gradient(circle at 90% -25%, rgb(59 130 246 / 0.34), transparent 46%),
+    radial-gradient(circle at 55% 140%, rgb(236 72 153 / 0.22), transparent 52%),
+    linear-gradient(125deg, #171a38 0%, #222755 42%, #1b315f 72%, #11263f 100%) !important;
+  border-bottom-color: rgb(255 255 255 / 0.15) !important;
+}
+
+html.theme3 .vertical-menu,
+html.theme3 .navbar-brand-box {
+  background-color: var(--app-shell-bg) !important;
+  background-image:
+    radial-gradient(circle at -15% 18%, rgb(139 92 246 / 0.3), transparent 44%),
+    radial-gradient(circle at 100% 92%, rgb(59 130 246 / 0.2), transparent 50%),
+    linear-gradient(180deg, #1a1f43 0%, #181f40 52%, #151b35 100%) !important;
+  border-color: var(--app-sidebar-border);
+}
+
+@media (max-width: 991px) {
+  html.theme3 .navbar-header .navbar-brand-box {
+    background-image: none !important;
+    background-color: #1a1f43 !important;
+  }
+}
+
+html.theme3 body.sidebar-open aside.vertical-menu {
+  background-image: none !important;
+  background-color: #1a1f43 !important;
+}
+
+html.theme3 #page-topbar .border-gray-200 {
+  border-color: rgb(255 255 255 / 0.18) !important;
+}
+
+html.theme3 #page-topbar #vertical-menu-btn {
+  border-color: rgb(255 255 255 / 0.2) !important;
+  color: #e0e7ff !important;
+}
+
+html.theme3 #page-topbar #vertical-menu-btn:hover {
+  background-color: rgb(255 255 255 / 0.1) !important;
+}
+
+html.theme3 #customSearchInput {
+  background-color: rgb(255 255 255 / 0.1) !important;
+  border-color: rgb(255 255 255 / 0.2) !important;
+  color: #f8fafc !important;
+}
+
+html.theme3 #customSearchInput::placeholder {
+  color: rgb(216 222 247 / 0.72) !important;
+}
+
+html.theme3 #page-topbar .top-search-icons,
+html.theme3 #page-topbar .ri-search-line {
+  color: #b5c0ee !important;
+}
+
+html.theme3 #page-topbar .text-gray-800 {
+  color: #f8fafc !important;
+}
+
+html.theme3 #page-topbar .text-gray-500 {
+  color: #b5c0ee !important;
+}
+
+html.theme3 #page-topbar .shortcut-globally-search {
+  border-color: rgb(255 255 255 / 0.2) !important;
+  color: #d9ddf6 !important;
+  background-color: rgb(255 255 255 / 0.08) !important;
+}
+
+html.theme3 #page-topbar .ai-mode-button-parent {
+  background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%) !important;
+  color: #ffffff !important;
+  border-color: transparent !important;
+}
+
+html.theme3 #page-topbar .ai-mode-button-parent:hover {
+  background: linear-gradient(135deg, #6d28d9 0%, #1d4ed8 100%) !important;
+}
+
+html.theme3 .globally-searchbar input {
+  color: #e0e7ff !important;
+  background-color: rgb(6 10 27 / 0.45) !important;
+  border: 1px solid rgb(255 255 255 / 0.16) !important;
+  box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.25) !important;
+}
+
+html.theme3 .globally-searchbar input::placeholder {
+  color: #b2bbec !important;
+}
+
+html.theme3 .globally-searchbar .ri-search-line,
+html.theme3 .vertical-menu .vertical-menu-btn {
+  color: #b2bbec !important;
+}
+
+/* theme3 mode end css */

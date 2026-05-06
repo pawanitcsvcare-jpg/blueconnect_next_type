@@ -88,6 +88,8 @@
   /* Pills / segmented controls: active chip on tinted track */
   --app-pill-track-bg: #e8edf7;
   --app-pill-active-bg: #ffffff;
+  /* Need Help — accordion trigger strip (pale lavender, dark label) */
+  --app-need-help-accordion-header: #e4e8f5;
   --app-chart-overlay: linear-gradient(
     145deg,
     rgb(241 247 255) 0%,
@@ -162,6 +164,7 @@
   --app-table-row-stripe: rgb(255 255 255 / 0.06);
   --app-pill-track-bg: #1e293b;
   --app-pill-active-bg: #334155;
+  --app-need-help-accordion-header: #343b4f;
   --app-chart-overlay: linear-gradient(
     145deg,
     rgb(15 23 42 / 0.92) 0%,
@@ -256,6 +259,7 @@ body[data-sidebar='dark'] {
   --app-table-row-stripe: rgb(255 255 255 / 0.06);
   --app-pill-track-bg: #1e293b;
   --app-pill-active-bg: #334155;
+  --app-need-help-accordion-header: #343b4f;
   --app-chart-overlay: linear-gradient(
     145deg,
     rgb(15 23 42 / 0.92) 0%,

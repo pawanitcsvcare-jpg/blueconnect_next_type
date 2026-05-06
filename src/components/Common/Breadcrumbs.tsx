@@ -20,7 +20,7 @@ export default function Breadcrumbs({ items = [] }: { items?: BreadcrumbItem[] }
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-600 dark:text-slate-300">{item.label}</span>
+              <span className="text-gray-600 dark:text-slate-300 capitalize">{item.label}</span>
             )}
             {idx < items.length - 1 && (
               <span className="text-gray-400 dark:text-slate-500">/</span>
